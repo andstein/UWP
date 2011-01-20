@@ -1,0 +1,49 @@
+
+
+
+object interaction
+------------------
+
+model 1 : WikiText coordinates everything
+  - complicated interaction between
+
+model 2 : Node controls tags
+  - WikiText simply calls insert on the root-node
+  - the root node delegates node-creation + rearrangement of tags
+  - so every node has to react on creation/deletion
+  - nodes only need text-buffer property
+
+model 3 : as model 2 but with text-buffer handling the insert/delete of text-ranges
+  - no real advantages ... ?
+
+
+The Parser
+----------
+
+see nodes/, parsers/
+
+the basic idea(s)
+	* string represents document & content
+	* tree of nodes is updated in parallel
+	* tree of nodes only containes ranges, no actual content (only saved in string)
+		* any node implements 'add text' and rearranges itself/part of tree/whole tree accordingly -- efficiently
+		* every range is relative to a 'parent' => normal text insertions need few arrangements
+	* the logic of the tree (what contains what etc) is implemented/stored in subclasses of the node
+	* a parser class can identify bounds + content of any node type in a string 
+		* purely node-based
+		* completely ignoring structure, position
+	* TODO
+		* implement GUI updating via notifications
+
+		
+dynamic parsing
+---------------
+
+ - scenario 1 : simple insert
+   - ranges must be re-aligned
+     - increase self.pos/content-length
+	 - increase post-siblings' .pos-location
+	 
+ - scenario 2 : new element is created
+   - new elements needs be created -- this includes the 
+   - 

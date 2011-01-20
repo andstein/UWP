@@ -1,0 +1,35 @@
+++ a first title
+
+here comes some normal text with _italic_ and *bold* even *several bold words at once*
+still the first paragraph because \n's are ignored as long
+as
+they
+are single the _italic
+should go over two lines, too_
+
+finally the second paragraph
+
+
+
+
+a third one without anything between them
+<<pre
+verbatim needs no two newlines before
+>>
+
+anywhere may by any number of [:eqn:// insets //] without warningor anything like
+$ e=mc $ or even $$ \int e^{x^2}\ dx $$
+
+another feature is the *bold \** and the _cursive \__
+
+	[alias:value]
+	
+options are written \[like:this\]
+	* first point
+	* second point
+		* first of second point
+		* second of second point
+	* third point
+	
+	
++++ just another title 
